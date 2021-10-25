@@ -50,7 +50,7 @@ configs:
       parameters:
         dismiss-stale-reviews: true
         
-     - name: rule5
+    - name: rule5
       parameters:
         require-code-owner-reviews: true
         
