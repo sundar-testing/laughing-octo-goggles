@@ -3,27 +3,24 @@ description: Tests out env settings
 branding:
   icon: activity
   color: blue
-
 inputs:
   - name: ProductionEnvReviewer
     type: string
   - name: DeploySecret
     type: string
     is-secret: true
-  
 configs:
   repo-metadata:
     parameters:
-      secrets: 
-      - name: DEV_SPN_ID
-        value: ${{inputs.DeploySecret}}
-      - name: DEV_SPN_ID_2
-        value: hii
+      secrets:
+        - name: DEV_SPN_ID
+          value: '${{inputs.DeploySecret}}'
+        - name: DEV_SPN_ID_2
+          value: hii
       topics:
-      - rails
-      - sql
-      
-   branches:
+        - rails
+        - sql
+  branches:
     - name: rule1
       parameters:
         enforce-admins: true
@@ -32,7 +29,6 @@ configs:
         required-approving-review-count: true
         allow-force-pushes: false
         allow-deletions: false
-   
     - name: rule2
       parameters:
         enforce-admins: true
@@ -41,25 +37,18 @@ configs:
         required-approving-review-count: true
         allow-force-pushes: false
         allow-deletions: false
-        
     - name: rule3
       parameters:
         enforce-admins: true
-    
     - name: rule4
       parameters:
         dismiss-stale-reviews: true
-        
     - name: rule5
       parameters:
         require-code-owner-reviews: true
-        
     - name: rule6
       parameters:
         allow-force-pushes: true
-        
     - name: rule7
       parameters:
         allow-deletions: true
-        
-      
